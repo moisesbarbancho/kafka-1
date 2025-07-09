@@ -84,7 +84,7 @@ kafka-configs --bootstrap-server broker-1:29092 --entity-type topics --entity-na
 kafka-topics --bootstrap-server broker-1:29092 --alter --topic my-topic --partitions 3 --replication-factor 4
 ```
 
-#### Borrar un tocic
+#### Borrar un topic
 
 ```bash
 kafka-topics --bootstrap-server broker-1:29092 --delete --topic my-topic
