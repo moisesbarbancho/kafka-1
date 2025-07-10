@@ -58,7 +58,7 @@
 │  cada 1000ms                            tabla 'users'           │
 │                                                                 │
 │  ┌─────────────────┐         ┌─────────────────┐                │
-│  │ Schema Registry │ ←──────→ │ Kafka Connect  │               │
+│  │ Schema Registry │ ←──────→ │ Kafka Connect  │                │
 │  │ (Avro schemas)  │         │ (Worker cluster)│                │
 │  └─────────────────┘         └─────────────────┘                │
 └─────────────────────────────────────────────────────────────────┘
