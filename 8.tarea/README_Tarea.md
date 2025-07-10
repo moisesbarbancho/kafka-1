@@ -23,6 +23,7 @@ docker-compose up -d
 - Control Center (puerto 9021)
 - ksqlDB Server (puerto 8088)
 - MySQL (interno)
+- phpMyAdmin (puerto 8080)
 
 ### 2. Configuración con setup.sh
 
@@ -45,13 +46,13 @@ cd 8.tarea
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    CONFLUENT KAFKA PLATFORM                    │
+│                    CONFLUENT KAFKA PLATFORM                     │
 ├─────────────────────────────────────────────────────────────────┤
-│  Control Center (9021) - Monitoreo y Gestión                  │
+│  Control Center (9021) - Monitoreo y Gestión                    │
 └─────────────────────────────────────────────────────────────────┘
                                 │
-┌─────────────────────────────────────────────────────────────────┐
-│                    KAFKA CLUSTER                               │
+┌───────────────────────────────────────────────────────────────┐
+│                    KAFKA CLUSTER                              │
 ├─────────────┬─────────────┬─────────────┬─────────────────────┤
 │Controller-1 │Controller-2 │Controller-3 │  Schema Registry    │
 │   (9095)    │   (9096)    │   (9097)    │      (8081)         │
@@ -61,17 +62,17 @@ cd 8.tarea
 └─────────────┴─────────────┴─────────────┴─────────────────────┘
                                 │
 ┌─────────────────────────────────────────────────────────────────┐
-│                    PROCESSING LAYER                            │
+│                    PROCESSING LAYER                             │
 ├─────────────────────────────────────────────────────────────────┤
-│  ksqlDB Server (8088) - Stream Processing                      │
-│  Java Streaming Apps (SalesSummaryApp, SensorAlerterApp)       │
+│  ksqlDB Server (8088) - Stream Processing                       │
+│  Java Streaming Apps (SalesSummaryApp, SensorAlerterApp)        │
 └─────────────────────────────────────────────────────────────────┘
                                 │
 ┌─────────────────────────────────────────────────────────────────┐
-│                    DATA LAYER                                  │
+│                    DATA LAYER                                   │
 ├─────────────────────────────────────────────────────────────────┤
-│  MySQL Database - Transactions & Telemetry Storage             │
-│  AVRO Schemas - sensor-telemetry.avsc, transactions.avsc       │
+│  MySQL Database - Transactions & Telemetry Storage              │
+│  AVRO Schemas - sensor-telemetry.avsc, transactions.avsc        │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -92,6 +93,7 @@ cd 8.tarea
 - **Schema Registry**: http://localhost:8081
 - **Kafka Connect**: http://localhost:8083
 - **ksqlDB**: http://localhost:8088
+- **phpMyAdmin**: http://localhost:8080 (user: `user`, password: `password`)
 
 ## Estado Actual
 
@@ -107,3 +109,4 @@ cd 8.tarea
 - Implementar aplicaciones de streaming
 - Monitorear flujo de datos
 - Realizar pruebas de procesamiento
+
