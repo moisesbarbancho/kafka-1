@@ -103,10 +103,32 @@ cd 8.tarea
 ✅ Schemas AVRO disponibles
 ✅ Kafka Connect reiniciado y funcionando
 
-## Próximos Pasos
+## Test del Entorno
 
-- Configurar y ejecutar conectores
-- Implementar aplicaciones de streaming
-- Monitorear flujo de datos
-- Realizar pruebas de procesamiento
+Se ha realizado un test del entorno mediante el script `test_environment.sh` que activa los conectores para generar mensajes y verificar que llegan correctamente a la base de datos MySQL.
+
+```bash
+./test_environment.sh
+```
+
+**¿Qué hace el script?**
+
+1. **Verifica conectividad** - Comprueba que Kafka Connect esté disponible
+2. **Configura conector source** - Activa el generador de datos sintéticos
+3. **Configura conector sink** - Conecta Kafka con MySQL
+4. **Verifica transferencia** - Comprueba que los datos llegan a MySQL
+5. **Muestra resultados** - Cuenta registros y muestra ejemplos
+
+### Resultado del Test
+
+✅ **Test exitoso**: 65 registros transferidos correctamente
+✅ **Pipeline completo**: Datagen → Kafka → MySQL
+✅ **Datos verificados** en tabla `sales_transactions`
+
+**Ejemplo de datos generados**:
+```
+transaction_id | product_id | category    | quantity | price  | timestamp
+tx12486       | prod_526   | supplies    | 5        | 53.23  | 2025-07-12 16:24:52
+tx13933       | prod_867   | pesticides  | 7        | 154.42 | 2025-07-12 16:24:52
+```
 
